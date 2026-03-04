@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexTrust Plans</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+    background: #140824;
+    color: white;
+}
+
+/* ================= NAVBAR SPACE ================= */
+body {
+    padding-top: 70px; /* Navbar height */
+    padding-bottom: 80px; /* Bottom nav height */
+}
+
+/* Full Page Background Effect */
+.plan-section {
+    min-height: 100vh;
+    background: radial-gradient(circle at 20% 30%, rgba(155,124,254,0.15), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(131,92,242,0.15), transparent 40%),
+                #140824;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Section Title */
+.plan-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Announcement Card */
+.announcement-card {
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+    margin-bottom: 35px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.announcement-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.announcement-card p {
+    font-size: 15px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Plan Card */
+.plan-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 25px;
+    padding: 25px 20px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Popular Ribbon */
+.popular-tag {
+    position: absolute;
+    top: 15px;
+    right: -35px;
+    background: #9b7cfe;
+    padding: 8px 40px;
+    transform: rotate(45deg);
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Plan Name */
+.plan-name {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* Price Box */
+.price-box {
+    background: rgba(255,255,255,0.08);
+    padding: 18px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Gradient Upgrade Box */
+.upgrade-box {
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.upgrade-box h4 {
+    margin: 8px 0;
+    font-size: 18px;
+}
+
+.upgrade-box span {
+    color: #ffe600;
+    font-weight: bold;
+}
+
+.upgrade-box p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Info Rows */
+.plan-info {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    padding: 14px 15px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.info-row i {
+    margin-right: 8px;
+    color: #9b7cfe;
+}
+
+.info-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Purchase Button */
+.purchase-btn {
+    margin-top: 20px;
+    background: #9b7cfe;
+    padding: 14px 40px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.purchase-btn:hover {
+    background: #f107a3;
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+<body>
+  <!-- ====== FONT AWESOME ====== -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- ====== NAVBAR + SIDEBAR SECTION START ====== -->
+<style>
+
+/* ================= NAVBAR ================= */
+.navbar {
+    background-color: #1a0b2e;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.menu-toggle-btn {
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+    margin-right: 20px;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #9b7cfe;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: linear-gradient(180deg, #9b7cfe 0%, #835cf2 100%);
+    transition: 0.4s ease;
+    z-index: 1001;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    padding: 40px 0 20px 0;
+    text-align: center;
+}
+
+.logo-container {
+    width: 90px;
+    height: 90px;
+    background: white;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo-container img {
+    width: 70%;
+}
+
+/* Sidebar Links */
+.nav-links {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-left: 4px solid white;
+}
+
+.nav-item i {
+    width: 30px;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+/* ================= OVERLAY ================= */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+
+.overlay.active {
+    display: block;
+}
+
+</style>
+
+<!-- ====== NAVBAR ====== -->
+<header class="navbar">
+    <div class="menu-toggle-btn" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="brand-name">NexTrust</div>
+</header>
+
+<!-- ====== OVERLAY ====== -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<!-- ====== SIDEBAR ====== -->
+<div class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+        <div class="logo-container">
+            <img src="https://img.icons8.com/color/96/pakistan.png" alt="NexTrust">
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="#" class="nav-item"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-dollar-sign"></i> Deposit Logs</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-money-bill-transfer"></i> Withdraw Logs</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-cubes"></i> My Earnings</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-right-left"></i> Transactions</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-users-viewfinder"></i> Referral</a>
+
+        <a href="#" class="nav-item" style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+            <i class="fa-solid fa-power-off"></i> Log Out
+        </a>
+    </div>
+
+</div>
+
+<!-- ====== SCRIPT ====== -->
+<script>
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('overlay').classList.toggle('active');
+}
+</script>
+
+<!-- ====== NAVBAR + SIDEBAR SECTION END ====== -->
+
+<section class="plan-section">
+
+    <div class="plan-title">Choose Your Perfect Plan</div>
+
+    <!-- Announcement Card -->
+    <div class="announcement-card">
+        <h3>!تازہ ترین اطلاع</h3>
+        <p>
+            ہماری کمپنی کے تمام پلانز اپ ڈیٹ کر دیے گئے ہیں۔ 
+            آپ بس اپ گریڈ رقم کمپنی کو بھیجیں اور اپنا پلان ایکٹیو کریں 
+            اور ویڈرا حاصل کریں۔ شکریہ۔
+        </p>
+    </div>
+
+    <!-- Plan Card -->
+    <div class="plan-card">
+
+        <div class="popular-tag">POPULAR</div>
+
+        <div class="plan-name">Plan-01</div>
+
+        <div class="price-box">
+            Rs.525.00
+        </div>
+
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 350</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 175</span></h4>
+            <p>
+                صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔
+            </p>
+        </div>
+
+        <div class="plan-info">
+
+            <div class="info-row">
+                <div class="info-left">
+                    <i class="fa-solid fa-coins"></i> Daily Income
+                </div>
+                <div>Rs. 105.00</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-left">
+                    <i class="fa-solid fa-chart-line"></i> Total Income
+                </div>
+                <div>Rs. 6300</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-left">
+                    <i class="fa-solid fa-calendar-days"></i> Validity
+                </div>
+                <div>60 Days</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-left">
+                    <i class="fa-solid fa-users"></i> Referral
+                </div>
+                <div>L1 14%</div>
+            </div>
+
+        </div>
+
+        <!-- Purchase Button -->
+        <button class="purchase-btn">Purchase</button>
+
+    </div>
+    
+
+</section>
+
+
+<!-- ===== EXTRA PLAN CARDS END ===== -->
+<section class="plan-section" style="display:flex; flex-direction:column; align-items:center;">
+
+
+
+    <!-- Plan Card 01 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+
+        <div class="plan-name">Plan-01</div>
+        <div class="price-box">Rs.525.00</div>
+
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 350</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 175</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 105.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 6300</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 02 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+
+        <div class="plan-name">Plan-02</div>
+        <div class="price-box">Rs.850.00</div>
+
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 700</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 150</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 170.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 10200</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 03 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+
+        <div class="plan-name">Plan-03</div>
+        <div class="price-box">Rs.1200.00</div>
+
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 1000</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 200</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 250.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 15000</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+</section>
+<section class="plan-section" style="display:flex; flex-direction:column; align-items:center;">
+
+
+
+    <!-- Plan Card 01 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-01</div>
+        <div class="price-box">Rs.525.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 350</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 175</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 105.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 6300</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 02 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-02</div>
+        <div class="price-box">Rs.850.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 700</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 150</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 170.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 10200</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 03 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-03</div>
+        <div class="price-box">Rs.1200.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 1000</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 200</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 250.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 15000</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 04 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-04</div>
+        <div class="price-box">Rs.1600.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 1400</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 200</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 320.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 19200</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 05 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-05</div>
+        <div class="price-box">Rs.2000.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 1800</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 200</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 400.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 24000</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 06 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-06</div>
+        <div class="price-box">Rs.2500.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 2200</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 300</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 500.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 30000</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+</section>
+<section class="plan-section" style="display:flex; flex-direction:column; align-items:center;">
+
+    
+
+    <!-- Plan Card 01 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-01</div>
+        <div class="price-box">Rs.525.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 350</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 175</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 105.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 6300</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 02 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-02</div>
+        <div class="price-box">Rs.850.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 700</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 150</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 170.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 10200</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 03 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-03</div>
+        <div class="price-box">Rs.1200.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 1000</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 200</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 250.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 15000</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 04 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-04</div>
+        <div class="price-box">Rs.1600.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 1400</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 200</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 320.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 19200</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+</section>
+<section class="plan-section" style="display:flex; flex-direction:column; align-items:center;">
+
+    
+    <!-- Plan Card 01 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-01</div>
+        <div class="price-box">Rs.525.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 350</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 175</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 105.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 6300</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 02 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-02</div>
+        <div class="price-box">Rs.850.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 700</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 150</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 170.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 10200</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 03 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-03</div>
+        <div class="price-box">Rs.1200.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 1000</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 200</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 250.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 15000</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 04 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-04</div>
+        <div class="price-box">Rs.1600.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 1400</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 200</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 320.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 19200</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Plan Card 05 -->
+    <div class="plan-card">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-name">Plan-05</div>
+        <div class="price-box">Rs.2000.00</div>
+        <div class="upgrade-box">
+            <h4>Old Plan: <span>Rs. 1800</span></h4>
+            <h4>Upgrade Amount: <span>Rs. 200</span></h4>
+            <p>صرف یہ اپگریڈ رقم کمپنی کو بھیجیں اور اپنا پلان اپ ڈیٹ کر لیں۔</p>
+        </div>
+        <div class="plan-info">
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-coins"></i> Daily Income</div><div>Rs. 400.00</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-chart-line"></i> Total Income</div><div>Rs. 24000</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-calendar-days"></i> Validity</div><div>60 Days</div></div>
+            <div class="info-row"><div class="info-left"><i class="fa-solid fa-users"></i> Referral</div><div>L1 14%</div></div>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+
+</section>
+<!-- Bottom Navigation -->
+<nav class="bottom-nav-container">
+
+    <a href="index.html" class="nav-link">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+    </a>
+
+    <a href="invests.html" class="nav-link">
+        <i class="fa-solid fa-wallet"></i>
+        <span>Invests</span>
+    </a>
+
+    <a href="menu.html" class="nav-center-btn">
+        <i class="fa-solid fa-table-cells-large"></i>
+    </a>
+
+    <a href="team.html" class="nav-link">
+        <i class="fa-solid fa-users"></i>
+        <span>Team</span>
+    </a>
+
+    <a href="logout.html" class="nav-link">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+    </a>
+
+</nav>
+
+<style>
+/* ===================== */
+/* Bottom Navigation CSS */
+/* ===================== */
+
+.bottom-nav-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #835cf2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 5px;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+}
+
+/* Standard Nav Item */
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 11px;
+    font-weight: 500;
+    flex: 1;
+    transition: all 0.2s ease;
+}
+
+.nav-link i {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+/* Active Click Effect */
+.nav-link:active {
+    color: #ffffff;
+    transform: scale(0.9);
+}
+
+/* Center Floating Button */
+.nav-center-btn {
+    position: relative;
+    top: -20px;
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.nav-center-btn:active {
+    transform: scale(0.9) translateY(5px);
+}
+</style>
+
+</body>
+</html>
+
+</body>
+</html>

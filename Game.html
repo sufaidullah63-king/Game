@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexTrust Navigation Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #0f081d; /* App background color */
+        }
+
+        /* --- Top Navbar --- */
+        .navbar {
+            background-color: #1a0b2e;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .menu-toggle-btn {
+            font-size: 22px;
+            cursor: pointer;
+            color: white;
+            margin-right: 20px;
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #9b7cfe;
+        }
+
+        /* --- Side Menu Drawer --- */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px; /* Shuru mein chhupa hua */
+            width: 280px;
+            height: 100%;
+            background: linear-gradient(180deg, #9b7cfe 0%, #835cf2 100%);
+            transition: 0.4s ease;
+            z-index: 1001;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Jab menu active ho */
+        .sidebar.active {
+            left: 0;
+        }
+
+        /* Logo Section inside Sidebar */
+        .sidebar-header {
+            padding: 40px 0 20px 0;
+            text-align: center;
+        }
+
+        .logo-container {
+            width: 90px;
+            height: 90px;
+            background: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .logo-container img {
+            width: 70%;
+        }
+
+        /* Menu Links */
+        .nav-links {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid white;
+        }
+
+        .nav-item i {
+            width: 30px;
+            font-size: 18px;
+            margin-right: 15px;
+        }
+
+        /* Dark Overlay when menu is open */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="menu-toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="brand-name">NexTrust</div>
+    </header>
+
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-container">
+                <img src="https://img.icons8.com/color/96/pakistan.png" alt="NexTrust">
+            </div>
+        </div>
+
+       <div class="nav-links">
+    <a href="Game.html" class="nav-item"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+    <a href="Deposit.html" class="nav-item"><i class="fa-solid fa-dollar-sign"></i> Deposit Logs</a>
+    <a href="Withdraw.html" class="nav-item"><i class="fa-solid fa-money-bill-transfer"></i> Withdraw Logs</a>
+    <a href="invests.html" class="nav-item"><i class="fa-solid fa-cubes"></i> My Earnings</a>
+    <a href="Transaction.html" class="nav-item"><i class="fa-solid fa-right-left"></i> Transactions</a>
+    <a href="team.html" class="nav-item"><i class="fa-solid fa-users-viewfinder"></i> Referral</a>
+    <a href="logout.html" class="nav-item" style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <i class="fa-solid fa-power-off"></i> Log Out
+    </a>
+</div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    </script>
+    <section class="nex-container">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        .nex-container {
+            width: 100%;
+            max-width: 412px; /* Standard Mobile Width */
+            margin: 110px auto 0 auto; /* Top Navbar se neechai */
+            padding: 0 16px;
+            box-sizing: border-box;
+            background-color: transparent;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* --- User Info Card --- */
+        .user-card-main {
+            background-color: #1a0b2e; /* Dark Purple shade from image */
+            border-radius: 18px;
+            padding: 24px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            margin-bottom: 22px;
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .username-side h2 {
+            font-size: 20px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .username-side p {
+            font-size: 13px;
+            color: #9d94b0;
+            margin-top: 4px;
+        }
+
+        .balance-side {
+            text-align: right;
+        }
+
+        .balance-side span {
+            font-size: 13px;
+            color: #a090b8;
+            display: block;
+        }
+
+        .balance-side strong {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .btn-flex {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .btn-style {
+            flex: 1;
+            height: 48px;
+            border-radius: 24px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .bg-gradient-1 { background: linear-gradient(to right, #9c7dfe, #845ef7); }
+        .bg-gradient-2 { background: linear-gradient(to right, #845ef7, #6741d9); }
+
+        /* --- Announcement Card (Bada aur Exact) --- */
+        .announcement-mega {
+            background: linear-gradient(135deg, #7b31f2 0%, #ef129d 100%);
+            border-radius: 22px;
+            padding: 50px 20px;
+            color: white;
+            text-align: center;
+            min-height: 280px; /* Badi height jaisa image mein hai */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(239, 18, 157, 0.3);
+        }
+
+        .announcement-mega h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .urdu-desc {
+            font-size: 18px;
+            line-height: 1.8;
+            direction: rtl;
+            font-weight: 500;
+            max-width: 95%;
+        }
+    </style>
+
+    <div class="user-card-main">
+        <div class="header-content">
+            <div class="username-side">
+                <h2>sufaidullah62</h2>
+                <p>Ref By: muhammadfayyaz</p>
+            </div>
+            <div class="balance-side">
+                <span>Available Balance</span>
+                <strong>Rs.0</strong>
+            </div>
+        </div>
+        <div class="btn-flex">
+            <button class="btn-style bg-gradient-1">Deposit</button>
+            <button class="btn-style bg-gradient-2">Withdraw</button>
+        </div>
+    </div>
+
+    <div class="announcement-mega">
+        <h3>اہم اعلان</h3>
+        <p class="urdu-desc">
+            محترم صارفین! اگر آپ نے اپنے تمام پلانز اپڈیٹ کر لیے ہیں تو اب آپ باآسانی ویڈرا لگاسکتے ہیں۔ اگر آپ کا ویڈرا نہیں ہو رہا تو براہِ کرم اپنے تمام پلانز کو اپگریڈ کریں۔ شکریہ۔
+        </p>
+    </div>
+
+</section>
+<section class="nex-icons-grid">
+    <style>
+        .nex-icons-grid {
+            width: 100%;
+            max-width: 412px;
+            margin: 25px auto; /* Announcement card ke baad gap */
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 Icons in one row */
+            gap: 20px 10px; /* Rows aur Columns ke darmiyan gap */
+            box-sizing: border-box;
+        }
+
+        /* Individual Icon Item */
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .grid-item:active {
+            transform: scale(0.9); /* Click karne par chhota hoga (Button feel) */
+        }
+
+        /* Circular Button Background */
+        .icon-circle {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #9b7cfe 0%, #835cf2 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Icon Label Text */
+        .icon-label {
+            margin-top: 8px;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 500;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        /* Icons Colors (Optional: If you want exact colors like image) */
+        .icon-circle i {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+    </style>
+
+    <a href="#" class="grid-item">
+        <div class="icon-circle">
+            <i class="fa-solid fa-file-invoice"></i>
+        </div>
+        <span class="icon-label">FBR</span>
+    </a>
+
+    <a href="#" class="grid-item">
+        <div class="icon-circle">
+            <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <span class="icon-label">Owner</span>
+    </a>
+
+    <a href="#" class="grid-item">
+        <div class="icon-circle">
+            <i class="fa-solid fa-money-bill-1"></i>
+        </div>
+        <span class="icon-label">Deposit Logs</span>
+    </a>
+
+    <a href="#" class="grid-item">
+        <div class="icon-circle">
+            <i class="fa-solid fa-upload"></i>
+        </div>
+        <span class="icon-label">Withdraw Logs</span>
+    </a>
+
+    <a href="#" class="grid-item">
+        <div class="icon-circle">
+            <i class="fa-solid fa-users"></i>
+        </div>
+        <span class="icon-label">My Team</span>
+    </a>
+
+    <a href="#" class="grid-item">
+        <div class="icon-circle">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+        <span class="icon-label">App</span>
+    </a>
+
+    <a href="#" class="grid-item">
+        <div class="icon-circle">
+            <i class="fa-solid fa-comments"></i>
+        </div>
+        <span class="icon-label">Join Group</span>
+    </a>
+
+    <a href="#" class="grid-item">
+        <div class="icon-circle">
+            <i class="fa-solid fa-headset"></i>
+        </div>
+        <span class="icon-label">Admin</span>
+    </a>
+
+</section>
+<section class="stats-grid-container">
+    <style>
+        .stats-grid-container {
+            width: 100%;
+            max-width: 412px;
+            margin: 20px auto;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 Columns like the image */
+            gap: 15px;
+            box-sizing: border-box;
+        }
+
+        /* Individual Stat Card */
+        .stat-card {
+            background-color: rgba(26, 11, 46, 0.9); /* Dark semi-transparent background */
+            border-radius: 15px;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        /* Icon Styling */
+        .stat-icon {
+            color: #9b7cfe; /* Purple color from screenshot */
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        /* Value Styling (Rs.0) */
+        .stat-value {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        /* Label Styling (Total Investment etc) */
+        .stat-label {
+            color: #a090b8; /* Muted purple/grey text */
+            font-size: 12px;
+            font-weight: 500;
+        }
+    </style>
+
+    <div class="stat-card">
+        <i class="fa-solid fa-wallet stat-icon"></i>
+        <div class="stat-value">Rs.0</div>
+        <div class="stat-label">Total Investment</div>
+    </div>
+
+    <div class="stat-card">
+        <i class="fa-solid fa-hand-holding-dollar stat-icon"></i>
+        <div class="stat-value">Rs.0</div>
+        <div class="stat-label">Total Withdraw</div>
+    </div>
+
+    <div class="stat-card">
+        <i class="fa-solid fa-hourglass-half stat-icon"></i>
+        <div class="stat-value">Rs.0</div>
+        <div class="stat-label">Pending Deposit</div>
+    </div>
+
+    <div class="stat-card">
+        <i class="fa-solid fa-spinner stat-icon"></i>
+        <div class="stat-value">Rs.0</div>
+        <div class="stat-label">Pending Withdraw</div>
+    </div>
+
+    <div class="stat-card">
+        <i class="fa-solid fa-gift stat-icon"></i>
+        <div class="stat-value">Rs.0</div>
+        <div class="stat-label">Referral Bonus</div>
+    </div>
+
+    <div class="stat-card">
+        <i class="fa-solid fa-users-gear stat-icon"></i>
+        <div class="stat-value">0</div>
+        <div class="stat-label">Total Team</div>
+    </div>
+
+</section>
+<nav class="bottom-nav-container">
+    <style>
+        .bottom-nav-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #835cf2; /* Original Purple Color */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 5px;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Standard Nav Item */
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 11px;
+            font-weight: 500;
+            flex: 1;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link i {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        /* Active Item Effect */
+        .nav-link:active {
+            color: #ffffff;
+            transform: scale(0.9);
+        }
+
+        /* Center Floating Action Button (Squares Icon) */
+        .nav-center-btn {
+            position: relative;
+            top: -20px; /* Thora upar utha hua */
+            width: 65px;
+            height: 65px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px; /* Squared rounded corners like image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .nav-center-btn:active {
+            transform: scale(0.9) translateY(5px);
+        }
+
+    </style>
+
+    <a href="Game.html" class="nav-link">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+    </a>
+
+    <a href="invests.html" class="nav-link">
+        <i class="fa-solid fa-wallet"></i>
+        <span>Invests</span>
+    </a>
+
+    <a href="menu.html" class="nav-center-btn">
+        <i class="fa-solid fa-table-cells-large"></i>
+    </a>
+
+    <a href="team.html" class="nav-link">
+        <i class="fa-solid fa-users"></i>
+        <span>Team</span>
+    </a>
+
+    <a href="logout.html" class="nav-link">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+    </a>
+</nav>
+</body>
+</html>

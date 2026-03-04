@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Link</title>
+
+<!-- Font Awesome for Social Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background: linear-gradient(180deg,#5e2ca5,#6e3bb7,#4b2b7f);
+    color:white;
+}
+
+.share-container {
+    background: rgba(0,0,0,0.4);
+    padding: 30px;
+    border-radius: 15px;
+    text-align:center;
+    width:90%;
+    max-width:400px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.share-container h2 {
+    margin-bottom:20px;
+}
+
+.share-container input {
+    width:100%;
+    padding:12px 10px;
+    border-radius:8px;
+    border:none;
+    margin-bottom:15px;
+    font-size:16px;
+    outline:none;
+}
+
+.copy-btn {
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    background:#835cf2;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin-bottom:20px;
+    transition:0.3s;
+}
+
+.copy-btn:hover {
+    background:#6a1b9a;
+}
+
+/* Social Buttons */
+.social-share {
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+}
+
+.social-share a {
+    flex:1;
+    text-decoration:none;
+    color:white;
+    margin:0 5px;
+    padding:10px 0;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.social-share a i {
+    margin-right:8px;
+}
+
+.social-share a.facebook { background:#3b5998; }
+.social-share a.facebook:hover { background:#2d4373; }
+
+.social-share a.whatsapp { background:#25D366; }
+.social-share a.whatsapp:hover { background:#1ebe57; }
+
+.social-share a.twitter { background:#1DA1F2; }
+.social-share a.twitter:hover { background:#0d95e8; }
+
+.social-share a.linkedin { background:#0077B5; }
+.social-share a.linkedin:hover { background:#005983; }
+
+</style>
+</head>
+<body>
+  <!-- ====== FONT AWESOME ====== -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- ====== NAVBAR + SIDEBAR SECTION START ====== -->
+<style>
+
+/* ================= NAVBAR ================= */
+.navbar {
+    background-color: #1a0b2e;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.menu-toggle-btn {
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+    margin-right: 20px;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #9b7cfe;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: linear-gradient(180deg, #9b7cfe 0%, #835cf2 100%);
+    transition: 0.4s ease;
+    z-index: 1001;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    padding: 40px 0 20px 0;
+    text-align: center;
+}
+
+.logo-container {
+    width: 90px;
+    height: 90px;
+    background: white;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo-container img {
+    width: 70%;
+}
+
+/* Sidebar Links */
+.nav-links {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-left: 4px solid white;
+}
+
+.nav-item i {
+    width: 30px;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+/* ================= OVERLAY ================= */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+
+.overlay.active {
+    display: block;
+}
+
+</style>
+
+<!-- ====== NAVBAR ====== -->
+<header class="navbar">
+    <div class="menu-toggle-btn" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="brand-name">NexTrust</div>
+</header>
+
+<!-- ====== OVERLAY ====== -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<!-- ====== SIDEBAR ====== -->
+<div class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+        <div class="logo-container">
+            <img src="https://img.icons8.com/color/96/pakistan.png" alt="NexTrust">
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="#" class="nav-item"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-dollar-sign"></i> Deposit Logs</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-money-bill-transfer"></i> Withdraw Logs</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-cubes"></i> My Earnings</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-right-left"></i> Transactions</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-users-viewfinder"></i> Referral</a>
+
+        <a href="#" class="nav-item" style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+            <i class="fa-solid fa-power-off"></i> Log Out
+        </a>
+    </div>
+
+</div>
+
+<!-- ====== SCRIPT ====== -->
+<script>
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('overlay').classList.toggle('active');
+}
+</script>
+
+<!-- ====== NAVBAR + SIDEBAR SECTION END ====== -->
+
+<div class="share-container">
+    <h2>Share This Link</h2>
+    <input type="text" id="shareLink" value="https://example.com/your-link" readonly>
+    <button class="copy-btn" onclick="copyLink()">Copy Link</button>
+
+    <div class="social-share">
+        <a href="#" class="facebook" target="_blank" onclick="shareSocial('facebook')"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="#" class="whatsapp" target="_blank" onclick="shareSocial('whatsapp')"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="#" class="twitter" target="_blank" onclick="shareSocial('twitter')"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="#" class="linkedin" target="_blank" onclick="shareSocial('linkedin')"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+    </div>
+</div>
+
+<script>
+function copyLink() {
+    const copyText = document.getElementById('shareLink');
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+    navigator.clipboard.writeText(copyText.value);
+    alert("Link copied to clipboard!");
+}
+
+function shareSocial(platform) {
+    const url = encodeURIComponent(document.getElementById('shareLink').value);
+    let shareUrl = '';
+
+    switch(platform) {
+        case 'facebook':
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            break;
+        case 'whatsapp':
+            shareUrl = `https://wa.me/?text=${url}`;
+            break;
+        case 'twitter':
+            shareUrl = `https://twitter.com/intent/tweet?url=${url}`;
+            break;
+        case 'linkedin':
+            shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}`;
+            break;
+    }
+
+    window.open(shareUrl, '_blank');
+}
+</script>
+<!-- Bottom Navigation -->
+<nav class="bottom-nav-container">
+
+    <a href="index.html" class="nav-link">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+    </a>
+
+    <a href="invests.html" class="nav-link">
+        <i class="fa-solid fa-wallet"></i>
+        <span>Invests</span>
+    </a>
+
+    <a href="menu.html" class="nav-center-btn">
+        <i class="fa-solid fa-table-cells-large"></i>
+    </a>
+
+    <a href="team.html" class="nav-link">
+        <i class="fa-solid fa-users"></i>
+        <span>Team</span>
+    </a>
+
+    <a href="logout.html" class="nav-link">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+    </a>
+
+</nav>
+
+<style>
+/* ===================== */
+/* Bottom Navigation CSS */
+/* ===================== */
+
+.bottom-nav-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #835cf2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 5px;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+}
+
+/* Standard Nav Item */
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 11px;
+    font-weight: 500;
+    flex: 1;
+    transition: all 0.2s ease;
+}
+
+.nav-link i {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+/* Active Click Effect */
+.nav-link:active {
+    color: #ffffff;
+    transform: scale(0.9);
+}
+
+/* Center Floating Button */
+.nav-center-btn {
+    position: relative;
+    top: -20px;
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.nav-center-btn:active {
+    transform: scale(0.9) translateY(5px);
+}
+</style>
+
+</body>
+</html>

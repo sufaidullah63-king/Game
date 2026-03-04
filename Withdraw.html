@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deposit History - NexTrust</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#5e2ca5,#6e3bb7,#4b2b7f);
+    color:white;
+}
+
+/* Deposit Card */
+.deposit-card{
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    padding:50px 40px;
+    border-radius:25px;
+    width:90%;
+    max-width:400px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    text-align:center;
+    transition:0.3s;
+}
+
+.deposit-card:hover{
+    transform: scale(1.02);
+}
+
+.deposit-card i{
+    font-size:50px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom:20px;
+}
+
+.deposit-card h2{
+    font-size:28px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.deposit-card p{
+    font-size:18px;
+    opacity:0.8;
+}
+</style>
+</head>
+<body>
+  <!-- ====== NAVBAR + SIDEBAR SECTION START ====== -->
+<style>
+/* ================= NAVBAR ================= */
+.navbar {
+    background-color: #1a0b2e;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.menu-toggle-btn {
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+    margin-right: 20px;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #9b7cfe;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: linear-gradient(180deg, #9b7cfe 0%, #835cf2 100%);
+    transition: 0.4s ease;
+    z-index: 1001;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    padding: 40px 0 20px 0;
+    text-align: center;
+}
+
+.logo-container {
+    width: 90px;
+    height: 90px;
+    background: white;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo-container img {
+    width: 70%;
+}
+
+/* Sidebar Links */
+.nav-links {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-left: 4px solid white;
+}
+
+.nav-item i {
+    width: 30px;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+/* ================= OVERLAY ================= */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+
+.overlay.active {
+    display: block;
+}
+</style>
+
+<!-- ====== NAVBAR ====== -->
+<header class="navbar">
+    <div class="menu-toggle-btn" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="brand-name">NexTrust</div>
+</header>
+
+<!-- ====== OVERLAY ====== -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<!-- ====== SIDEBAR ====== -->
+<div class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+        <div class="logo-container">
+            <img src="https://img.icons8.com/color/96/pakistan.png" alt="NexTrust">
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="#" class="nav-item"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-dollar-sign"></i> Deposit Logs</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-money-bill-transfer"></i> Withdraw Logs</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-cubes"></i> My Earnings</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-right-left"></i> Transactions</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-users-viewfinder"></i> Referral</a>
+
+        <a href="#" class="nav-item" style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+            <i class="fa-solid fa-power-off"></i> Log Out
+        </a>
+    </div>
+
+</div>
+
+<!-- ====== SCRIPT ====== -->
+<script>
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('overlay').classList.toggle('active');
+} // <-- Closing brace added here
+</script>
+<!-- ====== NAVBAR + SIDEBAR SECTION END ====== -->
+
+<div class="deposit-card">
+    <i class="fa-solid fa-wallet"></i>
+    <h2>No Withdraw History</h2>
+    <p>You have not made any Withdraw yet.</p>
+</div>
+<nav class="bottom-nav-container">
+    <style>
+        .bottom-nav-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #835cf2; /* Original Purple Color */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 5px;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Standard Nav Item */
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 11px;
+            font-weight: 500;
+            flex: 1;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link i {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        /* Active Item Effect */
+        .nav-link:active {
+            color: #ffffff;
+            transform: scale(0.9);
+        }
+
+        /* Center Floating Action Button (Squares Icon) */
+        .nav-center-btn {
+            position: relative;
+            top: -20px; /* Thora upar utha hua */
+            width: 65px;
+            height: 65px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px; /* Squared rounded corners like image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .nav-center-btn:active {
+            transform: scale(0.9) translateY(5px);
+        }
+
+    </style>
+
+    <a href="Game.html" class="nav-link">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+    </a>
+
+    <a href="invests.html" class="nav-link">
+        <i class="fa-solid fa-wallet"></i>
+        <span>Invests</span>
+    </a>
+
+    <a href="menu.html" class="nav-center-btn">
+        <i class="fa-solid fa-table-cells-large"></i>
+    </a>
+
+    <a href="team.html" class="nav-link">
+        <i class="fa-solid fa-users"></i>
+        <span>Team</span>
+    </a>
+
+    <a href="logout.html" class="nav-link">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+    </a>
+
+</body>
+</html>
